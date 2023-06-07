@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.primary-btn{
+    @apply px-6 py-2 rounded-tl-lg rounded-br-lg font-semibold text-[#eb1551] border border-[#eb1551] hover:bg-[#eb1551] hover:text-white
+}

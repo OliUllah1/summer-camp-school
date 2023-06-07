@@ -1,7 +1,7 @@
 // import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 // import { AuthContext } from '../../../Provider/AuthProvider';
-import logo from '../../../assets/images/logo2.png'
+import logo from '../../../assets/images/logo3.png'
 import TopNavber from './TopNavber';
 
 const Navber = () => {
@@ -15,7 +15,7 @@ const Navber = () => {
     return (
         <>
         <TopNavber></TopNavber>
-        <div className="flex justify-between items-center bg-white shadow-md lg:mb-1">
+        <div className="flex justify-between items-center bg-lime-500 shadow-md lg:mb-1">
     <div className="navbar">
       <div className=" flex-1">
         <div className="dropdown">
@@ -42,8 +42,8 @@ const Navber = () => {
             {navItem}
           </ul>
         </div>
-        <div className='w-20 lg:w-20 kg:h-20 flex items-center'>
-        <img className="w-full h-full object-center" src={logo} alt="" />
+        <div className=''>
+        <img className="w-40 h-full object-center" src={logo} alt="" />
         
         </div>
       </div>
@@ -54,19 +54,17 @@ const Navber = () => {
         </ul>
       </div>
       <div className=" font-semibold ml-5">
-        {/* {
-            user?<div className="flex items-center gap-2">
+        <div className="flex items-center gap-2">
             <div  className="btn btn-ghost btn-circle avatar">
               <div className="w-20 rounded-full">
-                <img className="w-full object-center" title={profileName} src={userImages} />
+                {/* <img className="w-full object-center" title={profileName} src={userImages} /> */}
               </div>
             </div>
   
             <div>
-            <button onClick={handleLogOut} className="px-8 rounded-lg py-2 btn-outline border btn-error">Log Out</button>
+            <Link to='/login'><button className="primary-btn">Log In</button></Link>
             </div>
-          </div>:<Link to='/login'><button className="px-8 rounded-lg py-2 btn-outline border btn-info">Log In</button></Link>
-        } */}
+          </div>
       </div>
       </div>
     </div>
