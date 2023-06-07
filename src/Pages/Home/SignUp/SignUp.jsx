@@ -62,11 +62,11 @@ const SignUp = () => {
     }
     return (
         <div>
-             <div className="flex items-center justify-center py-10">
-                <div className='w-1/2'>
+             <div className="lg:flex items-center justify-center py-10">
+                <div className='lg:w-1/2'>
                     <img src={signupImg} alt="" />
                 </div>
-                <div className="w-1/3 border rounded-lg bg-base-100 px-5 py-10">
+                <div className="lg:w-1/3 border rounded-lg bg-base-100 px-5 py-10">
                     <h1 className='font-bold text-3xl mb-2 text-[#eb1551]'>Sign Up Now</h1>
                     <form onSubmit={handleSubmit(onSubmit)}>
                         <div className="form-control">
@@ -128,8 +128,8 @@ const SignUp = () => {
                             <input className='primary-btn' type="submit" value="Create Account" />
                         </div>
                     </form>
-                    <button onClick={handleShowPassword} className=' inline-block absolute right-48 top-64 mt-20 pt-2'>{showPassword?<FaEyeSlash className="w-8"></FaEyeSlash>:<FaEye className='w-8'></FaEye>}</button>
-                    <button onClick={handleShowConfirmPassword} className='inline-block absolute right-48 top-64 mt-40 pt-2'>{showConfirmPassword?<FaEyeSlash className="w-8"></FaEyeSlash>:<FaEye className='w-8'></FaEye>}</button>
+                    <button onClick={handleShowPassword} className=' inline-block absolute right-12 lg:right-48 top-96 lg:top-64 mt-80 lg:mt-20 lg:pt-2'>{showPassword?<FaEyeSlash className="w-8"></FaEyeSlash>:<FaEye className='w-8'></FaEye>}</button>
+                    <button onClick={handleShowConfirmPassword} className='inline-block absolute right-12 lg:right-48 top-96 lg:top-64 mt-96 lg:mt-40 pt-5 lg:pt-2'>{showConfirmPassword?<FaEyeSlash className="w-8"></FaEyeSlash>:<FaEye className='w-8'></FaEye>}</button>
                     <div className="divider">OR</div>
                     <div>
                     <SocialLogin></SocialLogin>

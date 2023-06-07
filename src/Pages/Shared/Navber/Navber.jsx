@@ -6,8 +6,15 @@ import TopNavber from './TopNavber';
 import useAuth from '../../../Hooks/useAuth';
 
 const Navber = () => {
-    const {user}=useAuth()
+    const {user,logOut}=useAuth()
     console.log(user)
+    const handleLogOut=()=>{
+        logOut()
+        .then(()=>{})
+        .catch(error=>{
+            console.log(error)
+        })
+    }
     const navItem = <>
             <li><NavLink to="/" className={({ isActive }) =>isActive ? "text-xl  text-pink-600" : "text-black text-xl"}>Home</NavLink></li>
             <li><NavLink to="/instructors" className={({ isActive }) =>isActive ? "text-xl  text-pink-600" : "text-black text-xl"}>Instructors</NavLink></li>
@@ -64,7 +71,7 @@ const Navber = () => {
                 <img className="w-full object-center"src={user.photoURL} />
               </div>
             </div>
-            <button className="primary-btn">Log Out</button>
+            <button onClick={handleLogOut} className="primary-btn">Log Out</button>
           </div>:<div>
             <Link to='/login'><button className="primary-btn">Log In</button></Link>
             </div>
