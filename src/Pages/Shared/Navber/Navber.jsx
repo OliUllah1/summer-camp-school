@@ -25,6 +25,7 @@ const Navber = () => {
     return (
         <>
         <TopNavber></TopNavber>
+        <div className='w-[94%] fixed z-10'>
         <div className="flex justify-between items-center bg-lime-500 shadow-md lg:mb-1">
     <div className="navbar">
       <div className=" flex-1">
@@ -80,6 +81,7 @@ const Navber = () => {
       </div>
       </div>
     </div>
+        </div>
         </div>
         
         </>
