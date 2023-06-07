@@ -3,8 +3,11 @@ import { Link, NavLink } from 'react-router-dom';
 // import { AuthContext } from '../../../Provider/AuthProvider';
 import logo from '../../../assets/images/logo3.png'
 import TopNavber from './TopNavber';
+import useAuth from '../../../Hooks/useAuth';
 
 const Navber = () => {
+    const {user}=useAuth()
+    console.log(user)
     const navItem = <>
             <li><NavLink to="/" className={({ isActive }) =>isActive ? "text-xl  text-pink-600" : "text-black text-xl"}>Home</NavLink></li>
             <li><NavLink to="/instructors" className={({ isActive }) =>isActive ? "text-xl  text-pink-600" : "text-black text-xl"}>Instructors</NavLink></li>
@@ -54,17 +57,19 @@ const Navber = () => {
         </ul>
       </div>
       <div className=" font-semibold ml-5">
-        <div className="flex items-center gap-2">
+        {
+            user ? <div className="flex items-center gap-2">
             <div  className="btn btn-ghost btn-circle avatar">
               <div className="w-20 rounded-full">
-                {/* <img className="w-full object-center" title={profileName} src={userImages} /> */}
+                <img className="w-full object-center"src={user.photoURL} />
               </div>
             </div>
-  
-            <div>
+            <button className="primary-btn">Log Out</button>
+          </div>:<div>
             <Link to='/login'><button className="primary-btn">Log In</button></Link>
             </div>
-          </div>
+        }
+          
       </div>
       </div>
     </div>

@@ -17,12 +17,21 @@ const SignUp = () => {
     const onSubmit = data => {
         
         if(data.password===data.confirmPassword){
+            setError('')
             console.log(data)
             const {email,password,name,photoUrl}=data;
             createUser(email,password)
             .then(result=>{
                 const user = result.user;
                 console.log(user)
+                updateUserNameAndPhoto(result.user,name,photoUrl)
+                .then(result=>{
+                    console.log('user update successfully')
+                  })
+                  .catch(error=>{
+                    console.log(error)
+                    setError(error.message)
+                  })
                 navigate('/')
             })
             .catch(error=>{
