@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import login from '../../../assets/images/login.jpg'
 import { FaEye,FaGoogle } from "react-icons/fa";
 import SocialLogin from './SocialLogin';
+import { Link } from 'react-router-dom';
 const Login = () => {
     const [showPassword,setShowPassword]=useState(!true)
     const { register, handleSubmit,formState: { errors } } = useForm();
@@ -39,6 +40,7 @@ const Login = () => {
                             <button onClick={handleShowPassword} className=' absolute right-4 top-12'><FaEye className='w-8'></FaEye></button>
                         </div>
                         {errors.password && <span className='mt-1 text-red-700'>Please enter your password and try again</span>}
+                        <p className='mt-3'>New here?<Link className="link link-primary" to='/signup'>create an a account</Link></p>
                         <div className="form-control mt-6">
                             <input className='btn btn-primary' type="submit" value="Login" />
                         </div>
