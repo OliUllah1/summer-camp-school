@@ -1,12 +1,11 @@
-// import React, { useContext } from 'react';
+
 import { Link, NavLink } from 'react-router-dom';
-// import { AuthContext } from '../../../Provider/AuthProvider';
 import logo from '../../../assets/images/logo3.png'
-import TopNavber from './TopNavber';
 import useAuth from '../../../Hooks/useAuth';
 
 const Navber = () => {
     const {user,logOut}=useAuth()
+    
     console.log(user)
     const handleLogOut=()=>{
         logOut()
@@ -16,17 +15,16 @@ const Navber = () => {
         })
     }
     const navItem = <>
-            <li><NavLink to="/" className={({ isActive }) =>isActive ? "text-xl  text-pink-600" : "text-black text-xl"}>Home</NavLink></li>
-            <li><NavLink to="/instructors" className={({ isActive }) =>isActive ? "text-xl  text-pink-600" : "text-black text-xl"}>Instructors</NavLink></li>
-            <li><NavLink to="/classes" className={({ isActive }) =>isActive ? "text-xl  text-pink-600 " : "text-black text-xl"}>Classes</NavLink></li>
-            <li><NavLink to="/dashboard " className={({ isActive }) =>isActive ? "text-xl  text-pink-600" : "text-black text-xl"}>Dashboard </NavLink></li>
+            <li><NavLink to="/" className={({ isActive }) =>isActive ? "text-xl  text-[#eb1551]" : "text-white text-xl"}>Home</NavLink></li>
+            <li><NavLink to="/instructors" className={({ isActive }) =>isActive ? "text-xl  text-[#eb1551]" : "text-white  text-xl"}>Instructors</NavLink></li>
+            <li><NavLink to="/classes" className={({ isActive }) =>isActive ? "text-xl  text-[#eb1551]" : "text-white  text-xl"}>Classes</NavLink></li>
+            <li><NavLink to="/dashboard " className={({ isActive }) =>isActive ? "text-xl  text-[#eb1551]" : "text-white  text-xl"}>Dashboard </NavLink></li>
             
     </>
     return (
         <>
-        <TopNavber></TopNavber>
-        <div className='w-[94%] fixed z-10'>
-        <div className="flex justify-between items-center bg-lime-500 shadow-md lg:mb-1">
+        <div className='w-full pr-4 lg:pr-0 lg:w-[94%] fixed z-10 overflow-hidden'>
+        <div className="flex justify-between items-center shadow-md lg:mb-1  bg-opacity-40">
     <div className="navbar">
       <div className=" flex-1">
         <div className="dropdown">
