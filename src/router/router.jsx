@@ -8,12 +8,14 @@ import Dashboard from "../Pages/Dashboards/Dashboard/Dashboard";
 import MyClasses from "../Pages/Dashboards/StudentDashboard/MyClass/MyClasses";
 import EnrolledClasses from "../Pages/Dashboards/StudentDashboard/EnrolledClasses/EnrolledClasses";
 import PaymentHistory from "../Pages/Dashboards/StudentDashboard/PaymentHistory/PaymentHistory";
+import ErrorPage from "../ErrorPage/ErrorPage";
 
 
 const router = createBrowserRouter([
     {
       path: "/",
       element: <Main></Main>,
+      errorElement:<ErrorPage></ErrorPage>,
       children:[
         {
             path:'/',
