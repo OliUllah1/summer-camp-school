@@ -3,6 +3,7 @@ import React from 'react';
 import { FaGoogle,FaGithub } from "react-icons/fa";
 import useAuth from '../../../Hooks/useAuth';
 import { useLocation, useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 const SocialLogin = () => {
     const {googleSignIn,githubSignIn}=useAuth()
     const location =useLocation();
@@ -13,6 +14,13 @@ const SocialLogin = () => {
         .then(result=>{
             const user = result.user;
             console.log(user)
+            Swal.fire({
+                position: 'top-center',
+                icon: 'success',
+                title: 'Google Login Successfully',
+                showConfirmButton: false,
+                timer: 1500
+              })
             navigate(from, {replace:true})
         })
         .catch(error=>{
@@ -24,6 +32,13 @@ const SocialLogin = () => {
         .then(result=>{
             const user = result.user;
             console.log(user)
+            Swal.fire({
+                position: 'top-center',
+                icon: 'success',
+                title: 'GitHub Login successfully',
+                showConfirmButton: false,
+                timer: 1500
+              })
             navigate(from, {replace:true})
         })
         .catch(error=>{

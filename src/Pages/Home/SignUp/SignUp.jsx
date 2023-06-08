@@ -6,6 +6,7 @@ import {  useState } from 'react';
 import { useForm } from 'react-hook-form';
 import signupImg from '../../../assets/images/signup.jpg'
 import useAuth from "../../../Hooks/useAuth";
+import Swal from "sweetalert2";
 const SignUp = () => {
     const {createUser,updateUserNameAndPhoto}=useAuth()
     const [error,setError]=useState(null)
@@ -18,14 +19,32 @@ const SignUp = () => {
         
         if(data.password===data.confirmPassword){
             setError('')
-            console.log(data)
             const {email,password,name,photoUrl}=data;
             createUser(email,password)
             .then(result=>{
                 const user = result.user;
-                console.log(user)
                 updateUserNameAndPhoto(result.user,name,photoUrl)
                 .then(result=>{
+                    const saveData ={email,name,photoUrl,role:'student'}
+                    fetch('http://localhost:5000/users',{
+                        method:"POST",
+                        headers:{
+                            "Content-type":"application/json"
+                        },
+                        body:JSON.stringify(saveData)
+                    })
+                    .then(res=>res.json())
+                    .then(data=>{
+                        if(data.insertedId){
+                            Swal.fire({
+                                position: 'top-center',
+                                icon: 'success',
+                                title: 'User Created successfully',
+                                showConfirmButton: false,
+                                timer: 1500
+                              })
+                        }
+                    })
                     console.log('user update successfully')
                   })
                   .catch(error=>{
