@@ -3,13 +3,15 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import { Navigation } from "swiper";
+import useAuth from '../../../Hooks/useAuth';
 
 const Banner = () => {
+    const {dark}=useAuth()
     return (
         <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
         <SwiperSlide>
         <div className="hero min-h-screen" style={{backgroundImage: 'url(/src/assets/images/Slider-1.jpg)'}}>
-            <div className="hero-overlay bg-opacity-70"></div>
+            <div className={"hero-overlay"+ (dark?" bg-opacity-100":' bg-opacity-70')}></div>
             <div className="">
             <div className="pl-10  w-1/2">
                 <h1 className="mb-5 text-6xl font-bold text-white">The Most Creative <span className='text-[#eb1551]'>Art School</span> That Can Develop Your Talent</h1>

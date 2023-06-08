@@ -2,11 +2,11 @@
 import { Link, NavLink } from 'react-router-dom';
 import logo from '../../../assets/images/logo3.png'
 import useAuth from '../../../Hooks/useAuth';
+import { useState } from 'react';
+import { FaMoon,FaSun } from "react-icons/fa";
 
 const Navber = () => {
-    const {user,logOut}=useAuth()
-    
-    console.log(user)
+    const {user,logOut,dark,setDark}=useAuth()
     const handleLogOut=()=>{
         logOut()
         .then(()=>{})
@@ -23,7 +23,7 @@ const Navber = () => {
     </>
     return (
         <>
-        <div className='w-full pr-4 lg:pr-0 lg:w-[94%] fixed z-10 overflow-hidden'>
+        <div className={"w-full pr-4 lg:pr-0 lg:w-[94%] fixed z-10 overflow-hidden dark:bg-black" + (dark?"":'bg-black')}>
         <div className="flex justify-between items-center shadow-md lg:mb-1  bg-opacity-40">
     <div className="navbar">
       <div className=" flex-1">
@@ -75,8 +75,12 @@ const Navber = () => {
             <Link to='/login'><button className="primary-btn">Log In</button></Link>
             </div>
         }
+        
           
       </div>
+      {
+        dark?<button><FaMoon onClick={()=>setDark(false)} className='mx-2 text-3xl'></FaMoon></button>:<button onClick={()=>setDark(true)} className='mx-2 text-3xl text-white'><FaSun></FaSun></button>
+      }
       </div>
     </div>
         </div>
