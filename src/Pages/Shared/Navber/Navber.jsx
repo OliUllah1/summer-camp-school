@@ -18,7 +18,7 @@ const Navber = () => {
             <li><NavLink to="/" className={({ isActive }) =>isActive ? "text-xl  text-[#eb1551]" : "text-white text-xl"}>Home</NavLink></li>
             <li><NavLink to="/instructors" className={({ isActive }) =>isActive ? "text-xl  text-[#eb1551]" : "text-white  text-xl"}>Instructors</NavLink></li>
             <li><NavLink to="/classes" className={({ isActive }) =>isActive ? "text-xl  text-[#eb1551]" : "text-white  text-xl"}>Classes</NavLink></li>
-            <li><NavLink to="/dashboard " className={({ isActive }) =>isActive ? "text-xl  text-[#eb1551]" : "text-white  text-xl"}>Dashboard </NavLink></li>
+            <li><NavLink to="dashboard/myclasses" className={({ isActive }) =>isActive ? "text-xl  text-[#eb1551]" : "text-white  text-xl"}>Dashboard </NavLink></li>
             
     </>
     return (

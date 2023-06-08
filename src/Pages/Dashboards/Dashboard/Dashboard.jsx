@@ -1,9 +1,14 @@
 import React from 'react';
+import StudentNavber from '../StudentDashboard/StudentNavber/StudentNavber';
+import { Outlet } from 'react-router-dom';
 
 const Dashboard = () => {
     return (
-        <div>
-            <h1>dashboard</h1>
+        <div className='flex gap-5'>
+            <div className='bg-[#eb1551] w-[25%]'>
+            <StudentNavber></StudentNavber>
+            </div>
+            <Outlet></Outlet>
         </div>
     );
 };
