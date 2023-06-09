@@ -1,6 +1,7 @@
 import React from 'react';
 import useAuth from '../../../../Hooks/useAuth';
 import { useForm } from 'react-hook-form';
+import Swal from 'sweetalert2';
 
 const images_hosting_token=import.meta.env.VITE_images_upload_key;
 const AddClass = () => {
@@ -9,8 +10,9 @@ const AddClass = () => {
     const {user}=useAuth()
     const { register, handleSubmit, formState: { errors } } = useForm();
   const onSubmit = data => {
-
+    console.log(data)
     const formData = new FormData();
+    
         formData.append('image', data.image[0])
         fetch(img_Url, {
             method: 'POST',
@@ -19,6 +21,33 @@ const AddClass = () => {
         .then(res => res.json())
     .then(uploadImages=>{
         console.log(uploadImages)
+        if(uploadImages.success){
+            const imgURL=uploadImages.data.display_url
+            const {className,availableSets,instructorEmail,instructorName,price,}=data;
+            const newClass={className,availableSets:parseInt(availableSets),instructorEmail,instructorName,price:parseFloat(price),classImg:imgURL,status:'pending'}
+            console.log(newClass)
+            fetch('http://localhost:5000/classes',{
+                method:'POST',
+                headers:{
+                    "Content-type":'application/json'
+                },
+                body:JSON.stringify(newClass)
+            })
+            .then(res=>res.json())
+            .then(data=>{
+                if(data.insertedId){
+                    Swal.fire({
+                        position: 'top-center',
+                        icon: 'success',
+                        title: 'Class Added Successfully',
+                        showConfirmButton: false,
+                        timer: 1500
+                      })
+                      
+                }
+                console.log(data)
+            })
+        }
     })
 }
     return (

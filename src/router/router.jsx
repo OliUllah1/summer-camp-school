@@ -10,6 +10,7 @@ import EnrolledClasses from "../Pages/Dashboards/StudentDashboard/EnrolledClasse
 import PaymentHistory from "../Pages/Dashboards/StudentDashboard/PaymentHistory/PaymentHistory";
 import ErrorPage from "../ErrorPage/ErrorPage";
 import AddClass from "../Pages/Dashboards/InstructorDashboard/AddClass/AddClass";
+import InstructorClasses from "../Pages/Dashboards/InstructorDashboard/InstructorClasses/InstructorClasses";
 
 
 const router = createBrowserRouter([
@@ -51,6 +52,10 @@ const router = createBrowserRouter([
       {
         path:'addclass',
         element:<AddClass></AddClass>
+      },
+      {
+        path:'instructorclasses',
+        element:<InstructorClasses></InstructorClasses>
       }
       ]
     }
