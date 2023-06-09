@@ -4,32 +4,34 @@ const ClassDetails = ({singleClass,index}) => {
     console.log(singleClass)
     const {availableSets,classImg,className,instructorEmail,instructorName,price,status}=singleClass;
     return (
-        <tr>
+        <tr className='w-[100%]'>
         <th>
           {index+1}
         </th>
         <td>
           <div className="flex items-center space-x-3">
             <div className="avatar">
-              <div className="mask mask-squircle w-12 h-12">
+              <div className="mask  w-20 h-16 object-center rounded-lg">
                 <img src={classImg} alt="Avatar Tailwind CSS Component" />
               </div>
             </div>
             <div>
-              <div className="font-bold">Hart Hagerty</div>
-              <div className="text-sm opacity-50">United States</div>
+              <div className="font-bold text-[#eb1551]">{className}</div>
             </div>
           </div>
         </td>
         <td>
-          Zemlak, Daniel and Leannon
-          <br/>
-          <span className="badge badge-ghost badge-sm">Desktop Support Technician</span>
+          <h4 className='font-semibold text-2xl'>{instructorName}</h4>
+          <p className='font-semibold text-gray-600'>{instructorEmail}
+          </p>
+          
         </td>
-        <td>Purple</td>
-        <th>
-          <button className="btn btn-ghost btn-xs">details</button>
-        </th>
+        <td className='font-semibold'>{price}</td>
+        <td className='text-center font-semibold'>{availableSets}</td>
+        <td className='flex gap-2 mt-5 text-red-500'>
+            pending
+        <span className="loading loading-spinner loading-xs"></span>
+        </td>
       </tr>
     );
 };

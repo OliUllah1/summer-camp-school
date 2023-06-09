@@ -14,12 +14,12 @@ const InstructorClasses = () => {
     },[])
     console.log(classes)
     return (
-        <div>
-            <div className="overflow-x-auto">
-  <table className="table">
+        <div className='w-[100%]'>
+            <div className="overflow-x-auto w-full">
+  <table className="table w-full">
     {/* head */}
     <thead>
-      <tr>
+      <tr className='bg-[#eb1551] text-white'>
         <th>No</th>
         <th>Class Name</th>
         <th>Instructor</th>
