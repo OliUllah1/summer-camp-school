@@ -53,6 +53,7 @@ const AddClass = () => {
     return (
         <div className="bg-base-200 w-full">
     <div className=" w-full shadow-2xl bg-base-100">
+    <h1 className='pl-7 pt-10 text-5xl text-[#eb1551] font-semibold'>Add a Class</h1>
       <form  onSubmit={handleSubmit(onSubmit)} className="card-body w-full">
         <div className='flex gap-5'>
         <div className="form-control w-full">
@@ -91,14 +92,14 @@ const AddClass = () => {
           <label className="label">
             <span className="label-text text-xl font-semibold text-[#eb1551]">Available seats</span>
           </label>
-          <input type="number" name='availableSets' {...register("availableSets", { required: true })} placeholder="Available seats" className="input input-bordered input-secondary w-full" />
+          <input type="text" name='availableSets' {...register("availableSets", { required: true })} placeholder="Available seats" className="input input-bordered input-secondary w-full" />
           {errors.availableSets && <span>This field is required</span>}
         </div>
         <div className="form-control w-full">
           <label className="label">
             <span className="label-text text-xl font-semibold text-[#eb1551]">Price</span>
           </label>
-          <input type="number" name='price' {...register("price", { required: true })} placeholder="Price" className="input input-bordered input-secondary w-full" />
+          <input type="text" name='price' {...register("price", { required: true })} placeholder="Price" className="input input-bordered input-secondary w-full" />
           {errors.price && <span>This field is required</span>}
         </div>
         </div>

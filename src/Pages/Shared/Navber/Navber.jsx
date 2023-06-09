@@ -24,7 +24,7 @@ const Navber = () => {
     return (
         <>
         <div className={"w-full pr-4 lg:pr-0 lg:w-[94%] fixed z-10 overflow-hidden dark:bg-black" + (dark?"":'bg-black')}>
-        <div className="flex justify-between items-center shadow-md lg:mb-1  bg-opacity-40">
+        <div className="flex justify-between items-center shadow-md lg:mb-1 bg-opacity-40">
     <div className="navbar">
       <div className=" flex-1">
         <div className="dropdown">

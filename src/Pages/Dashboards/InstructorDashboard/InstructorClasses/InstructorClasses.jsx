@@ -17,7 +17,6 @@ const InstructorClasses = () => {
         <div className='w-[100%]'>
             <div className="overflow-x-auto w-full">
   <table className="table w-full">
-    {/* head */}
     <thead>
       <tr className='bg-[#eb1551] text-white'>
         <th>No</th>
