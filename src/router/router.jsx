@@ -12,6 +12,7 @@ import ErrorPage from "../ErrorPage/ErrorPage";
 import AddClass from "../Pages/Dashboards/InstructorDashboard/AddClass/AddClass";
 import InstructorClasses from "../Pages/Dashboards/InstructorDashboard/InstructorClasses/InstructorClasses";
 import Instructors from "../Pages/Home/Instructors/Instructors";
+import Classes from "../Pages/Home/Classes/Classes";
 
 
 const router = createBrowserRouter([
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
         {
           path:'/instructors',
           element:<Instructors></Instructors>
+        },
+        {
+          path:'/classes',
+          element:<Classes></Classes>
         }
       ]
     },
