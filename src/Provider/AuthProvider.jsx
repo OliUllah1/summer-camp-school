@@ -9,6 +9,7 @@ const AuthProvider = ({children}) => {
     const [user,setUser]=useState(null)
     const [loading,setLoading] =useState(true)
     const [dark,setDark]=useState(false);
+    const [role,setRole]=useState(null)
     
     const googleProvider = new GoogleAuthProvider();
     const googleSignIn =()=>{
@@ -30,6 +31,11 @@ const AuthProvider = ({children}) => {
         return updateProfile(user,{displayName:name,photoURL:photo})
     }
     useEffect(()=>{
+        fetch(`http://localhost:5000/users?email=${user?.email}`)
+        .then(res=>res.json())
+        .then(data=>setRole(data.role))
+    },[user])
+    useEffect(()=>{
         const unsubscribe= onAuthStateChanged(auth,currentUser=>{
             console.log('currentUser login',currentUser)
              setUser(currentUser)
@@ -48,7 +54,8 @@ const AuthProvider = ({children}) => {
         googleSignIn,
         updateUserNameAndPhoto,
         dark,
-        setDark
+        setDark,
+        role
     }
     return (
         <div>
