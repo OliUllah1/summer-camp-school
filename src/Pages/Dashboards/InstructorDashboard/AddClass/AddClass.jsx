@@ -2,12 +2,25 @@ import React from 'react';
 import useAuth from '../../../../Hooks/useAuth';
 import { useForm } from 'react-hook-form';
 
-
+const images_hosting_token=import.meta.env.VITE_images_upload_key;
 const AddClass = () => {
-    const images_hosting_token = import.meta.env.VITE_images_upload_key;
+    const img_Url=`https://api.imgbb.com/1/upload?key=${images_hosting_token}`
+
     const {user}=useAuth()
-    const { register, handleSubmit, watch, formState: { errors } } = useForm();
-  const onSubmit = data => console.log(data);
+    const { register, handleSubmit, formState: { errors } } = useForm();
+  const onSubmit = data => {
+
+    const formData = new FormData();
+        formData.append('image', data.image[0])
+        fetch(img_Url, {
+            method: 'POST',
+            body: formData
+        })
+        .then(res => res.json())
+    .then(uploadImages=>{
+        console.log(uploadImages)
+    })
+}
     return (
         <div className="bg-base-200 w-full">
     <div className=" w-full shadow-2xl bg-base-100">
@@ -24,8 +37,8 @@ const AddClass = () => {
           <label className="label">
             <span className="label-text text-xl font-semibold text-[#eb1551]">Class Image</span>
           </label>
-          <input type="file" name='classImg' {...register("classImg", { required: true })} className="file-input file-input-bordered file-input-secondary w-full" />
-          {errors.classImg && <span>This field is required</span>}
+          <input type="file" name='image' {...register("image", { required: true })} className="file-input file-input-bordered file-input-secondary w-full" />
+          {errors.image && <span>This field is required</span>}
         </div>
         </div>
         <div className='flex gap-5'>
@@ -69,4 +82,4 @@ const AddClass = () => {
     );
 };
 
-export default AddClass;
+export default AddClass
