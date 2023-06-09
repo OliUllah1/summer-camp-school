@@ -6,7 +6,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 const SocialLogin = () => {
     const {googleSignIn}=useAuth()
     const location =useLocation();
-    const from = location.state?.from?.pathname||'/';
+    const from = location?.state?.from?.pathname||'/';
     const navigate = useNavigate();
     const handleGoogleLogin=()=>{
         googleSignIn()
