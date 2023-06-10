@@ -13,6 +13,9 @@ import AddClass from "../Pages/Dashboards/InstructorDashboard/AddClass/AddClass"
 import InstructorClasses from "../Pages/Dashboards/InstructorDashboard/InstructorClasses/InstructorClasses";
 import Instructors from "../Pages/Home/Instructors/Instructors";
 import Classes from "../Pages/Home/Classes/Classes";
+import Payment from "../Pages/Dashboards/StudentDashboard/Payment/Payment";
+import ManageClasses from "../Pages/Dashboards/AdminDashboard/ManageClasses/ManageClasses";
+import ManageUsers from "../Pages/Dashboards/AdminDashboard/ManageUsers/ManageUsers";
 
 
 const router = createBrowserRouter([
@@ -56,6 +59,11 @@ const router = createBrowserRouter([
         element:<EnrolledClasses></EnrolledClasses>
       },
       {
+        path:'payment/:id',
+        element:<Payment></Payment>,
+        loader:({params})=>fetch(`http://localhost:5000/classes/${params.id.substring(1)}`)
+      },
+      {
         path:'paymenthistory',
         element:<PaymentHistory></PaymentHistory>
       },
@@ -66,6 +74,15 @@ const router = createBrowserRouter([
       {
         path:'instructorclasses',
         element:<InstructorClasses></InstructorClasses>
+      },
+      {
+        path:'manageclasses',
+        element:<ManageClasses></ManageClasses>,
+        loader:()=>fetch('http://localhost:5000/classes')
+      },
+      {
+        path:'manageusers',
+        element:<ManageUsers></ManageUsers>
       }
       ]
     }

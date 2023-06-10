@@ -1,7 +1,6 @@
 import React from 'react';
 
 const ClassDetails = ({singleClass,index}) => {
-    console.log(singleClass)
     const {availableSets,classImg,className,instructorEmail,instructorName,price,status}=singleClass;
     return (
         <tr className='w-[100%]'>

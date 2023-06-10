@@ -1,9 +1,10 @@
-import React from 'react';
+
 import useAuth from '../../../Hooks/useAuth';
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
 const ClasseCard = ({classe}) => {
+
     const {availableSets,classImg,className,instructorName,price,_id}=classe;
     const {user}= useAuth()
     const navigate=useNavigate()
@@ -27,15 +28,7 @@ const ClasseCard = ({classe}) => {
                         showConfirmButton: false,
                         timer: 1500
                       })
-                }
-                else{
-                    Swal.fire({
-                        position: 'top-center',
-                        icon: 'warning',
-                        title: 'Already add this class',
-                        showConfirmButton: false,
-                        timer: 1500
-                      })
+                      setSave(true)
                 }
                 console.log(data)})
         }
@@ -43,6 +36,7 @@ const ClasseCard = ({classe}) => {
             navigate('/login')
         } 
     }
+    
     return (
         <div className="card bg-base-100 shadow-2xl">
   <figure className="px-5 pt-10">
@@ -53,7 +47,10 @@ const ClasseCard = ({classe}) => {
     <p className='font-semibold'><span className='font-bold'>Instructor</span> : {instructorName}</p>
     <p className='font-semibold'><span className='font-bold'>Available seats</span> : {availableSets}</p>
     <p className='font-semibold'><span className='font-bold'>Price</span> : {price} $</p>
-    <button onClick={handleSaveClass} className='primary-btn mt-3'>Save Class</button>
+    {
+        availableSets===0?<button disabled={true} className='red-btn mt-3'>Not Available</button>:<button onClick={handleSaveClass} className='primary-btn mt-3'>Save Class</button>
+    }
+    
   </div>
 </div>
     );

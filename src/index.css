@@ -5,4 +5,11 @@
 .primary-btn{
     @apply px-6 py-2 rounded-tl-lg rounded-br-lg font-bold hover:text-[#eb1551] border border-[#eb1551] bg-[#eb1551] text-white hover:bg-white
 }
+.red-btn{
+    @apply px-6 py-2 rounded-tl-lg rounded-br-lg font-bold border border-[#eb1551] bg-[#FF0303] text-white
+}
+.pay-btn{
+    @apply px-4 py-2 rounded-tl-lg rounded-br-lg font-bold btn-success text-white
+}
+
 
