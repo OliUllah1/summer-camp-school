@@ -8,6 +8,7 @@ const MyClasses = () => {
         .then(res=>res.json())
         .then(data=>{
             setClasses(data)
+            console.log(data)
         })
     },[])
     return (
