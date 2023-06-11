@@ -2,11 +2,10 @@
 import { Link, NavLink } from 'react-router-dom';
 import logo from '../../../assets/images/logo3.png'
 import useAuth from '../../../Hooks/useAuth';
-import { useState } from 'react';
 import { FaMoon,FaSun } from "react-icons/fa";
 
 const Navber = () => {
-    const {user,logOut,dark,setDark}=useAuth()
+    const {user,logOut,dark,setDark,role}=useAuth()
     const handleLogOut=()=>{
         logOut()
         .then(()=>{})
@@ -18,7 +17,15 @@ const Navber = () => {
             <li><NavLink to="/" className={({ isActive }) =>isActive ? "text-xl  text-[#eb1551]" : "text-white text-xl"}>Home</NavLink></li>
             <li><NavLink to="/instructors" className={({ isActive }) =>isActive ? "text-xl  text-[#eb1551]" : "text-white  text-xl"}>Instructors</NavLink></li>
             <li><NavLink to="/classes" className={({ isActive }) =>isActive ? "text-xl  text-[#eb1551]" : "text-white  text-xl"}>Classes</NavLink></li>
-            <li><NavLink to="dashboard/myclasses" className={({ isActive }) =>isActive ? "text-xl  text-[#eb1551]" : "text-white  text-xl"}>Dashboard </NavLink></li>
+            {
+              role==='student' && <li><NavLink to="/dashboard/myclasses" className={({ isActive }) =>isActive ? "text-xl  text-[#eb1551]" : "text-white  text-xl"}>Dashboard </NavLink></li>
+            }
+            {
+              role==='instructor' && <li><NavLink to="/dashboard/addclass" className={({ isActive }) =>isActive ? "text-xl  text-[#eb1551]" : "text-white  text-xl"}>Dashboard </NavLink></li>
+            }
+            {
+              role==='admin' && <li><NavLink to="/dashboard/manageclasses" className={({ isActive }) =>isActive ? "text-xl  text-[#eb1551]" : "text-white  text-xl"}>Dashboard </NavLink></li>
+            }
             
     </>
     return (

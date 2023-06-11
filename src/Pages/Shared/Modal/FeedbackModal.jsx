@@ -8,10 +8,10 @@ const FeedbackModal = ({closeModal, isOpen, feedbackInformation }) => {
 
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const onSubmit = data =>{
-        const feedbackData={classImg,className,instructorEmail,status,_id,feedback:data.feedback}
+        const feedbackData={feedback:data.feedback}
         
-        fetch('http://localhost:5000/feedbacks',{
-            method:'POST',
+        fetch(`http://localhost:5000/classfeedback/${_id}`,{
+            method:'PATCH',
             headers:{
                 'Content-type':'application/json'
             },
@@ -20,7 +20,7 @@ const FeedbackModal = ({closeModal, isOpen, feedbackInformation }) => {
         .then(res=>res.json())
         .then(data=>{
             console.log(data)
-            if(data.insertedId){ 
+            if(data.modifiedCount){ 
             Swal.fire({
                 position: 'top-center',
                 icon: 'success',
@@ -29,15 +29,7 @@ const FeedbackModal = ({closeModal, isOpen, feedbackInformation }) => {
                 timer: 1500
             })
             }
-            else{
-                Swal.fire({
-                    position: 'top-center',
-                    icon: 'success',
-                    title: 'already send the feedback',
-                    showConfirmButton: false,
-                    timer: 1500
-                })
-            }
+            
             reset()
         })
         };

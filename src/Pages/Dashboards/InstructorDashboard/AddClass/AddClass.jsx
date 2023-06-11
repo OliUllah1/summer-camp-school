@@ -26,7 +26,7 @@ const AddClass = () => {
         if(uploadImages.success){
             const imgURL=uploadImages.data.display_url
             const {className,availableSets,instructorEmail,instructorName,price,}=data;
-            const newClass={className,availableSets:parseInt(availableSets),instructorEmail,instructorName,price:parseFloat(price),classImg:imgURL,status:'pending',TotalEnrolledStudents:0,feedback:''}
+            const newClass={className,availableSets:parseInt(availableSets),instructorEmail,instructorName,price:parseFloat(price),classImg:imgURL,status:'pending',TotalEnrolledStudents:0,feedback:'No Feedback'}
             console.log(newClass)
             fetch('http://localhost:5000/classes',{
                 method:'POST',
