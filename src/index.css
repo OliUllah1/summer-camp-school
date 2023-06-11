@@ -5,6 +5,12 @@
 .primary-btn{
     @apply px-6 py-2 rounded-tl-lg rounded-br-lg font-bold hover:text-[#eb1551] border border-[#eb1551] bg-[#eb1551] text-white hover:bg-white
 }
+.make-btn{
+    @apply px-4 flex gap-2 items-center py-1 rounded-tl-lg rounded-br-lg font-bold border border-[#eb1551] bg-[#eb1551] text-white 
+}
+.make-secondary{
+    @apply px-4 flex gap-2 items-center py-1 rounded-tl-lg rounded-br-lg font-bold border border-[#eb1551] bg-white text-[#eb1551]
+}
 .red-btn{
     @apply px-6 py-2 rounded-tl-lg rounded-br-lg font-bold border border-[#eb1551] bg-[#FF0303] text-white
 }

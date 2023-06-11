@@ -82,7 +82,8 @@ const router = createBrowserRouter([
       },
       {
         path:'manageusers',
-        element:<ManageUsers></ManageUsers>
+        element:<ManageUsers></ManageUsers>,
+        loader:()=>fetch('http://localhost:5000/allusers')
       }
       ]
     }
