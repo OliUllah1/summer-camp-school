@@ -1,17 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FaCheck,FaTimes,FaComment} from "react-icons/fa";
 import Swal from 'sweetalert2';
+import FeedbackModal from '../../../Shared/Modal/FeedbackModal';
 
 const ClassInformation = ({singleClass,index}) => {
+  const [isOpen,setIsOpen]=useState(false)
   const {availableSets,classImg,className,instructorEmail,instructorName,price,status,_id}=singleClass;
+  const closeModal=()=>{
+    setIsOpen(false)
+  }
   const handleApproved=(id)=>{
-    fetch(`http://localhost:5000/classes/${id}`,{
+    fetch(`http://localhost:5000/classes/${id}?status=approved`,{
       method:'PATCH'
     })
     .then(res=>res.json())
     .then(data=>{
       console.log(data)
-      if(modifiedCount===1){
+      if(data.modifiedCount){
         Swal.fire({
           position: 'top-center',
           icon: 'success',
@@ -19,6 +24,35 @@ const ClassInformation = ({singleClass,index}) => {
           showConfirmButton: false,
           timer: 1500
         })
+      }
+    })
+  }
+  const handleDenied=(id)=>{
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be denied this class!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, denied it!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:5000/classes/${id}?status=denied`,{
+      method:'PATCH'
+    })
+    .then(res=>res.json())
+    .then(data=>{
+      console.log(data)
+      if(data.modifiedCount){
+        Swal.fire(
+          'Deleted!',
+          'Class has been denied.',
+          'error'
+        )
+      }
+    })
+        
       }
     })
   }
@@ -55,9 +89,11 @@ const ClassInformation = ({singleClass,index}) => {
         </td>
         <td>
           <button onClick={()=>handleApproved(_id)} disabled={status==='approved'|| status==='denied'} className=' bg-green-500 rounded-full p-3 text-white font-semibold mr-3'><FaCheck></FaCheck></button>
-          <button disabled={status==='approved'|| status==='denied'} className='bg-red-500 rounded-full p-3 text-white font-semibold'><FaTimes></FaTimes></button>
-          <button className='bg-sky-500 ml-3 rounded-full p-3 text-white font-semibold'><FaComment></FaComment></button>
+          <button onClick={()=>handleDenied(_id)} disabled={status==='approved'|| status==='denied'} className='bg-red-500 rounded-full p-3 text-white font-semibold'><FaTimes></FaTimes></button>
+          <button onClick={()=>setIsOpen(true)}  className='bg-sky-500 ml-3 rounded-full p-3 text-white font-semibold'><FaComment></FaComment></button>
+
         </td>
+        <FeedbackModal feedbackInformation={singleClass} closeModal={closeModal} isOpen={isOpen}></FeedbackModal>
       </tr>
     );
 };
