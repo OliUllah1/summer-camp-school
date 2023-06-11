@@ -51,6 +51,7 @@ const AuthProvider = ({children}) => {
              
              setLoading(false)
          })
+         
          return ()=>{
              return unsubscribe();
          }
@@ -60,6 +61,7 @@ const AuthProvider = ({children}) => {
         .then(res=>res.json())
         .then(data=>setRole(data?.role))
     },[user])
+
     const authInfo ={
         createUser,
         signIn,

@@ -1,10 +1,15 @@
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
 import DashboardNavBar from '../../DashboardNavBar/DashboardNavBar';
 import ClassInformation from './ClassInformation';
+import useAxiosSecure from '../../../../Hooks/useAxiosSecure';
+import { useQuery } from 'react-query';
 
 const ManageClasses = () => {
-    const classes = useLoaderData()
+    const [axiosSecure] = useAxiosSecure();
+    const { data: classes = [], refetch } = useQuery(['classes'], async () => {
+        const res = await axiosSecure.get('/allclasses')
+        return res.data;
+    })
     console.log(classes)
     return (
         <div  className='w-[100%]'>
@@ -29,7 +34,7 @@ const ManageClasses = () => {
     <tbody>
       
       {
-        classes.map((singleClass,index)=><ClassInformation singleClass={singleClass} key={singleClass._id} index={index}></ClassInformation>)
+        classes.map((singleClass,index)=><ClassInformation singleClass={singleClass} key={singleClass._id} refetch={refetch} index={index}></ClassInformation>)
       }
     </tbody>
     

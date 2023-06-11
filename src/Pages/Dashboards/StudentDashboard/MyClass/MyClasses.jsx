@@ -1,16 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import MyClass from './MyClass';
+import useAxiosSecure from '../../../../Hooks/useAxiosSecure';
+import { useQuery } from 'react-query';
 
 const MyClasses = () => {
-    const [classes,setClasses]=useState([])
-    useEffect(()=>{
-        fetch('http://localhost:5000/saveclass')
-        .then(res=>res.json())
-        .then(data=>{
-            setClasses(data)
-            console.log(data)
-        })
-    },[])
+    const [axiosSecure] = useAxiosSecure();
+    const { data: classes = [], refetch } = useQuery(['saveclasses'], async () => {
+        const res = await axiosSecure.get('/saveclass')
+        return res.data;
+    })
     return (
         <div className='w-[100%]'>
             <div className="overflow-x-auto w-full">
@@ -27,7 +25,7 @@ const MyClasses = () => {
     </thead>
     <tbody>
     {
-        classes.map((singleClass,index)=><MyClass key={singleClass._id} index={index} singleClass={singleClass}></MyClass>)
+        classes.map((singleClass,index)=><MyClass key={singleClass._id} index={index} singleClass={singleClass} refetch={refetch}></MyClass>)
       }
       
     </tbody>

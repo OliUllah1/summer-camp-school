@@ -1,10 +1,15 @@
 import React from 'react';
 import DashboardNavBar from '../../DashboardNavBar/DashboardNavBar';
-import { useLoaderData } from 'react-router-dom';
 import UserInformation from './UserInformation';
+import useAxiosSecure from '../../../../Hooks/useAxiosSecure';
+import { useQuery } from 'react-query';
 
 const ManageUsers = () => {
-    const users=useLoaderData();
+    const [axiosSecure] = useAxiosSecure();
+    const { data: users = [], refetch } = useQuery(['users'], async () => {
+        const res = await axiosSecure.get('/allusers')
+        return res.data;
+    })
     console.log(users)
     return (
         <div  className='w-[100%]'>
@@ -28,7 +33,7 @@ const ManageUsers = () => {
     <tbody>
       
       {
-        users.map((user,index)=><UserInformation user={user} index={index} key={user._id}></UserInformation>)
+        users.map((user,index)=><UserInformation user={user} index={index} key={user._id} refetch={refetch}></UserInformation>)
       }
     </tbody>
     

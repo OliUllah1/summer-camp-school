@@ -78,13 +78,11 @@ const router = createBrowserRouter([
       },
       {
         path:'manageclasses',
-        element:<ManageClasses></ManageClasses>,
-        loader:()=>fetch('http://localhost:5000/allclasses')
+        element:<ManageClasses></ManageClasses>
       },
       {
         path:'manageusers',
-        element:<ManageUsers></ManageUsers>,
-        loader:()=>fetch('http://localhost:5000/allusers')
+        element:<ManageUsers></ManageUsers>
       },
       {
         path:'updateclass/:id',

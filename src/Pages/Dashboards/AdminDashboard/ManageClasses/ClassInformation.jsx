@@ -3,7 +3,7 @@ import { FaCheck,FaTimes,FaComment} from "react-icons/fa";
 import Swal from 'sweetalert2';
 import FeedbackModal from '../../../Shared/Modal/FeedbackModal';
 
-const ClassInformation = ({singleClass,index}) => {
+const ClassInformation = ({singleClass,index,refetch}) => {
   const [isOpen,setIsOpen]=useState(false)
   const {availableSets,classImg,className,instructorEmail,instructorName,price,status,_id}=singleClass;
   const closeModal=()=>{
@@ -24,6 +24,7 @@ const ClassInformation = ({singleClass,index}) => {
           showConfirmButton: false,
           timer: 1500
         })
+        refetch()
       }
     })
   }
@@ -45,6 +46,7 @@ const ClassInformation = ({singleClass,index}) => {
     .then(data=>{
       console.log(data)
       if(data.modifiedCount){
+        refetch()
         Swal.fire(
           'Deleted!',
           'Class has been denied.',
@@ -93,7 +95,7 @@ const ClassInformation = ({singleClass,index}) => {
           <button onClick={()=>setIsOpen(true)}  className='bg-sky-500 ml-3 rounded-full p-3 text-white font-semibold'><FaComment></FaComment></button>
 
         </td>
-        <FeedbackModal feedbackInformation={singleClass} closeModal={closeModal} isOpen={isOpen}></FeedbackModal>
+        <FeedbackModal feedbackInformation={singleClass} closeModal={closeModal} isOpen={isOpen} refetch={refetch}></FeedbackModal>
       </tr>
     );
 };

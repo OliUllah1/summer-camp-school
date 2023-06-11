@@ -2,11 +2,10 @@ import React from 'react';
 import { FaGraduationCap,FaUserShield } from "react-icons/fa";
 import Swal from 'sweetalert2';
 
-const UserInformation = ({user,index}) => {
+const UserInformation = ({user,index,refetch}) => {
     console.log(user)
     const {email,name,photoUrl,role,_id}=user;
     const handleMakeAdmin=(id)=>{
-
         Swal.fire({
             title: 'Are you sure?',
             text: "You won't be make admin this users!",
@@ -17,7 +16,6 @@ const UserInformation = ({user,index}) => {
             confirmButtonText: 'Yes, i do it!'
           }).then((result) => {
             if (result.isConfirmed) {
-
                 fetch(`http://localhost:5000/users/${id}?role=admin`,{
                     method:'PATCH'
                 })
@@ -25,23 +23,16 @@ const UserInformation = ({user,index}) => {
                 .then(data=>{
                     console.log(data)
                     if(data.modifiedCount===1){
+                      refetch()
                         Swal.fire(
                             'Congratulation',
                             'Make Admin Successfully',
                             'success'
                           )
                     }
-                })
-
-
-            
+                })  
             }
-          })
-
-
-
-
-        
+          }) 
     }
     
     const handleMakeInstructor=(id)=>{
@@ -64,6 +55,7 @@ const UserInformation = ({user,index}) => {
                 .then(data=>{
                     console.log(data)
                     if(data.modifiedCount===1){
+                      refetch()
                         Swal.fire(
                             'Congratulation',
                             'Make instructor Successfully',

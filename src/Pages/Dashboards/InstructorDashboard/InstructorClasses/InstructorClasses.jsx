@@ -1,17 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import useAuth from '../../../../Hooks/useAuth';
 import ClassDetails from './ClassDetails';
+import useAxiosSecure from '../../../../Hooks/useAxiosSecure';
+import { useQuery } from 'react-query';
 
 const InstructorClasses = () => {
-    const [classes,setClasses]=useState([])
-    const {user}=useAuth()
-    useEffect(()=>{
-        fetch(`http://localhost:5000/classes?email=${user.email}`)
-        .then(res=>res.json())
-        .then(data=>{
-            setClasses(data)
-        })
-    },[])
+    const {user,loading}=useAuth()
+    const [axiosSecure] = useAxiosSecure();
+    const {data: classes = [], refetch} = useQuery({
+        queryKey: ['classes', user?.email],
+        enabled: !loading,
+        queryFn: async () => {
+            const res = await axiosSecure(`/classes?email=${user?.email}`)
+            return res.data;
+        },
+    })
     console.log(classes)
     return (
         <div className='w-[100%]'>

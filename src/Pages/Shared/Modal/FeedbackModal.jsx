@@ -3,9 +3,7 @@ import { Fragment } from 'react'
 import { useForm } from 'react-hook-form';
 import Swal from 'sweetalert2';
 
-const FeedbackModal = ({closeModal, isOpen, feedbackInformation }) => {
-    const {classImg,className,instructorEmail,status,_id}=feedbackInformation;
-
+const FeedbackModal = ({closeModal, isOpen, feedbackInformation ,refetch}) => {
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const onSubmit = data =>{
         const feedbackData={feedback:data.feedback}
@@ -21,6 +19,7 @@ const FeedbackModal = ({closeModal, isOpen, feedbackInformation }) => {
         .then(data=>{
             console.log(data)
             if(data.modifiedCount){ 
+              refetch()
             Swal.fire({
                 position: 'top-center',
                 icon: 'success',

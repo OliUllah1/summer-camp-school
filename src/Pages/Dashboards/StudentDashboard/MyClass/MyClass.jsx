@@ -3,9 +3,8 @@ import { FaMoneyCheck,FaTrashAlt } from "react-icons/fa";
 import Swal from 'sweetalert2';
 import { Link } from 'react-router-dom';
 import useAuth from '../../../../Hooks/useAuth';
-const MyClass = ({singleClass,index}) => {
+const MyClass = ({singleClass,index,refetch}) => {
     const {user}=useAuth()
-    console.log(user)
     const {classImg,className,instructorName,price,_id}=singleClass;
     const id=_id;
     const handleDelete=(id)=>{
@@ -26,6 +25,7 @@ const MyClass = ({singleClass,index}) => {
                 .then(res=>res.json())
                 .then(data=>{
                     if (data.deletedCount > 0) {
+                      refetch()
                         Swal.fire(
                             'Deleted!',
                             'class delete successfully',
