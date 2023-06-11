@@ -1,7 +1,8 @@
 import React from 'react';
-
+import { FaUser,FaPen } from "react-icons/fa";
+import { Link } from 'react-router-dom';
 const ClassDetails = ({singleClass,index}) => {
-    const {availableSets,classImg,className,instructorEmail,instructorName,price,status}=singleClass;
+    const {availableSets,classImg,className,price,status,TotalEnrolledStudents,feedback,_id}=singleClass;
     return (
         <tr className='w-[100%]'>
         <th className='text-[#eb1551]'>
@@ -19,19 +20,22 @@ const ClassDetails = ({singleClass,index}) => {
             </div>
           </div>
         </td>
-        <td>
-          <h4 className='font-semibold text-xl'>{instructorName}</h4>
-          <p className='font-semibold text-gray-600'>{instructorEmail}
-          </p>
-          
-        </td>
         <td className='font-semibold'>$ {price}</td>
-        <td className='text-center font-semibold'>{availableSets}</td>
+        <td className='text-center font-semibold'><span className='flex items-center justify-center gap-2'>{availableSets} <FaUser className=' text-[#eb1551]'></FaUser></span></td>
+        <td className='text-center font-semibold'>
+          <span className='flex items-center justify-center gap-2'>{TotalEnrolledStudents} <FaUser className='text-green-500'></FaUser></span>
+          </td>
         <td>
             {status==='pending'&&<p className='flex gap-2 font-semibold text-red-500'>pending <span className="loading loading-spinner loading-xs"></span></p>}
             {status==='approved'&&<p className=' text-green-500'>Approved</p>}
             {status==='denied'&&<p className='text-red-500'>Denied</p>}
             
+        </td>
+        <td className={status==='approved'?'text-green-500 font-semibold':'text-red-500 font-semibold'}>{feedback}</td>
+        <td>
+          <Link to={`/dashboard/updateclass/${_id}`}>
+          <button className='bg-emerald-500 p-3 rounded-full text-white'><FaPen></FaPen></button>
+          </Link>
         </td>
       </tr>
     );

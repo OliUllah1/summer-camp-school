@@ -21,13 +21,19 @@ const InstructorClasses = () => {
       <tr className='bg-[#eb1551] text-white'>
         <th>No</th>
         <th>Class Name</th>
-        <th>Instructor</th>
         <th>Class Price</th>
         <th>Available seats</th>
+        <th>Enrolled Students</th>
         <th>Status</th>
+        <th>Admin Feedback</th>
+        <th>Update Class</th>
       </tr>
     </thead>
     <tbody>
+      {
+        classes.length===0 && 
+          <h1  className='text-xl m-10 font-semibold'>Please add a class and try again</h1>
+      }
       
       {
         classes.map((singleClass,index)=><ClassDetails key={singleClass._id} singleClass={singleClass} index={index}></ClassDetails>)

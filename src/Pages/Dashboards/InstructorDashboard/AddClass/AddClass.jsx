@@ -2,13 +2,15 @@ import React from 'react';
 import useAuth from '../../../../Hooks/useAuth';
 import { useForm } from 'react-hook-form';
 import Swal from 'sweetalert2';
+import { useNavigate } from 'react-router-dom';
 
 const images_hosting_token=import.meta.env.VITE_images_upload_key;
 const AddClass = () => {
-    const img_Url=`https://api.imgbb.com/1/upload?key=${images_hosting_token}`
+    const img_Url=`https://api.imgbb.com/1/upload?key=${images_hosting_token}`;
+    const navigate=useNavigate()
 
     const {user}=useAuth()
-    const { register, handleSubmit, formState: { errors } } = useForm();
+    const { register, handleSubmit, reset, formState: { errors } } = useForm();
   const onSubmit = data => {
     console.log(data)
     const formData = new FormData();
@@ -24,7 +26,7 @@ const AddClass = () => {
         if(uploadImages.success){
             const imgURL=uploadImages.data.display_url
             const {className,availableSets,instructorEmail,instructorName,price,}=data;
-            const newClass={className,availableSets:parseInt(availableSets),instructorEmail,instructorName,price:parseFloat(price),classImg:imgURL,status:'pending'}
+            const newClass={className,availableSets:parseInt(availableSets),instructorEmail,instructorName,price:parseFloat(price),classImg:imgURL,status:'pending',TotalEnrolledStudents:0,feedback:''}
             console.log(newClass)
             fetch('http://localhost:5000/classes',{
                 method:'POST',
@@ -43,6 +45,8 @@ const AddClass = () => {
                         showConfirmButton: false,
                         timer: 1500
                       })
+                      navigate('/dashboard/instructorclasses')
+                      reset()
                       
                 }
                 console.log(data)

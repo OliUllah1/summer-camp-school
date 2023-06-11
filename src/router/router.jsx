@@ -16,6 +16,7 @@ import Classes from "../Pages/Home/Classes/Classes";
 import Payment from "../Pages/Dashboards/StudentDashboard/Payment/Payment";
 import ManageClasses from "../Pages/Dashboards/AdminDashboard/ManageClasses/ManageClasses";
 import ManageUsers from "../Pages/Dashboards/AdminDashboard/ManageUsers/ManageUsers";
+import UpdateClass from "../Pages/Dashboards/InstructorDashboard/UpdateClass/UpdateClass";
 
 
 const router = createBrowserRouter([
@@ -84,6 +85,11 @@ const router = createBrowserRouter([
         path:'manageusers',
         element:<ManageUsers></ManageUsers>,
         loader:()=>fetch('http://localhost:5000/allusers')
+      },
+      {
+        path:'updateclass/:id',
+        element:<UpdateClass></UpdateClass>,
+        loader:({params})=>fetch(`http://localhost:5000/classes/${params.id}`)
       }
       ]
     }
