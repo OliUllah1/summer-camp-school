@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import useAuth from '../../../../Hooks/useAuth';
 const MyClass = ({singleClass,index,refetch}) => {
     const {user}=useAuth()
-    const {classImg,className,instructorName,price,_id}=singleClass;
+    const {classImg,className,instructorName,instructorEmail,price,_id}=singleClass;
     const id=_id;
     const handleDelete=(id)=>{
         Swal.fire({
@@ -56,10 +56,11 @@ const MyClass = ({singleClass,index,refetch}) => {
         </td>
         <td>
           <h4 className='font-semibold text-xl'>{instructorName}</h4>
+          <p>{instructorEmail}</p>
         </td>
         <td className='font-semibold'>$ {price}</td>
         <td>
-            <Link to={`/dashboard/payment/:${id}`}><button className='flex items-center gap-2 pay-btn btn-success'>Pay <FaMoneyCheck className='w-6'></FaMoneyCheck></button></Link>
+            <Link to={`/dashboard/:${id}`}><button className='flex items-center gap-2 pay-btn btn-success'>Pay <FaMoneyCheck className='w-6'></FaMoneyCheck></button></Link>
         </td>
         <td>
             <button onClick={()=>handleDelete(_id)} className="red-btn"><FaTrashAlt></FaTrashAlt></button>

@@ -7,10 +7,10 @@ export const AuthContext = createContext(null);
 const auth = getAuth(app);
 
 const AuthProvider = ({children}) => {
-    const [user,setUser]=useState(null)
+    const [user,setUser]=useState({})
     const [loading,setLoading] =useState(true)
     const [dark,setDark]=useState(false);
-    const [role,setRole]=useState(null)
+    const [role,setRole]=useState('')
     
     const googleProvider = new GoogleAuthProvider();
     const googleSignIn =()=>{
@@ -59,7 +59,7 @@ const AuthProvider = ({children}) => {
      useEffect(()=>{
         fetch(`http://localhost:5000/users?email=${user?.email}`)
         .then(res=>res.json())
-        .then(data=>setRole(data?.role))
+        .then(data=>setRole(data.role))
     },[user])
 
     const authInfo ={
