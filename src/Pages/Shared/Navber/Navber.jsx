@@ -3,9 +3,12 @@ import { Link, NavLink } from 'react-router-dom';
 import logo from '../../../assets/images/logo3.png'
 import useAuth from '../../../Hooks/useAuth';
 import { FaMoon,FaSun } from "react-icons/fa";
+import useRole from '../../../Hooks/useRole';
 
 const Navber = () => {
-    const {user,logOut,dark,setDark,role}=useAuth()
+    const {user,logOut,dark,setDark}=useAuth()
+    const [role]=useRole()
+    console.log(role)
     const handleLogOut=()=>{
         logOut()
         .then(()=>{})

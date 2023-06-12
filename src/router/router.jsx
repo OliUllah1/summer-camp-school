@@ -17,6 +17,7 @@ import Payment from "../Pages/Dashboards/StudentDashboard/Payment/Payment";
 import ManageClasses from "../Pages/Dashboards/AdminDashboard/ManageClasses/ManageClasses";
 import ManageUsers from "../Pages/Dashboards/AdminDashboard/ManageUsers/ManageUsers";
 import UpdateClass from "../Pages/Dashboards/InstructorDashboard/UpdateClass/UpdateClass";
+import AdminRouter from "./PrivateRouter/AdminRouter";
 
 
 const router = createBrowserRouter([
@@ -77,11 +78,11 @@ const router = createBrowserRouter([
       },
       {
         path:'manageclasses',
-        element:<ManageClasses></ManageClasses>
+        element:<AdminRouter><ManageClasses></ManageClasses></AdminRouter>
       },
       {
         path:'manageusers',
-        element:<ManageUsers></ManageUsers>
+        element:<AdminRouter><ManageUsers></ManageUsers></AdminRouter>
       },
       {
         path:'updateclass/:id',

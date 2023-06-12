@@ -15,7 +15,7 @@ const InstructorClasses = () => {
             return res.data;
         },
     })
-    console.log(classes)
+
     return (
         <div className='w-[100%]'>
             <div className="overflow-x-auto w-full">

@@ -1,7 +1,6 @@
 import React from 'react';
 
 const EnrollClass = ({singleClass}) => {
-    console.log(singleClass)
     const{classImg,className,instructorName}=singleClass
     return (
         <div className="card bg-base-200 shadow-xl">

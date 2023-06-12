@@ -11,7 +11,6 @@ const EnrolledClasses = () => {
         const res = await axiosSecure.get(`/payments?email=${user.email}`)
         return res.data;
     })
-    console.log(classes)
     return (
         <div className='pt-5'>
             <h1 className='font-semibold text-2xl text-[#eb1551]'>My Enroll Classes</h1>

@@ -10,7 +10,6 @@ const ManageClasses = () => {
         const res = await axiosSecure.get('/allclasses')
         return res.data;
     })
-    console.log(classes)
     return (
         <div  className='w-[100%]'>
     

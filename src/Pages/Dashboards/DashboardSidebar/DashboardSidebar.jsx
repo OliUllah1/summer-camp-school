@@ -5,8 +5,11 @@ import useAuth from '../../../Hooks/useAuth';
 import StudentNavber from '../StudentDashboard/StudentNavber/StudentNavber';
 import AdminNavber from '../AdminDashboard/AdminNavber/AdminNavber';
 import InstructorNavber from '../InstructorDashboard/InstructorNavber/InstructorNavber';
+import useRole from '../../../Hooks/useRole';
 const DashboardSidebar = () => {
-    const {user,role}=useAuth()
+    const {user,}=useAuth()
+    const [role]=useRole()
+    console.log(role)
     
     return (
         <div className='text-white'>

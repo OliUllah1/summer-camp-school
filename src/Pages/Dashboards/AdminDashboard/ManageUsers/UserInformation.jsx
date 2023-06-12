@@ -3,7 +3,6 @@ import { FaGraduationCap,FaUserShield } from "react-icons/fa";
 import Swal from 'sweetalert2';
 
 const UserInformation = ({user,index,refetch}) => {
-    console.log(user)
     const {email,name,photoUrl,role,_id}=user;
     const handleMakeAdmin=(id)=>{
         Swal.fire({
@@ -53,7 +52,6 @@ const UserInformation = ({user,index,refetch}) => {
                 })
                 .then(res=>res.json())
                 .then(data=>{
-                    console.log(data)
                     if(data.modifiedCount===1){
                       refetch()
                         Swal.fire(

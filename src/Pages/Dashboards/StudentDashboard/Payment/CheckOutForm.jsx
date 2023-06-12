@@ -23,7 +23,6 @@ const CheckOutForm = ({price,classData}) => {
       if (price > 0) {
           axiosSecure.post('/create-payment-intent', { price })
               .then(res => {
-                  console.log(res.data.clientSecret)
                   setClientSecret(res.data.clientSecret);
               })
       }
@@ -47,7 +46,6 @@ const CheckOutForm = ({price,classData}) => {
       })
 
       if (error) {
-          console.log('error', error)
           setCardError(error.message);
       }
       else {
