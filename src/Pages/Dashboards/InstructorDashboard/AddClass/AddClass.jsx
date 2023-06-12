@@ -8,6 +8,7 @@ const images_hosting_token=import.meta.env.VITE_images_upload_key;
 const AddClass = () => {
     const img_Url=`https://api.imgbb.com/1/upload?key=${images_hosting_token}`;
     const navigate=useNavigate()
+    const token = localStorage.getItem('access-token');
 
     const {user}=useAuth()
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
@@ -28,10 +29,11 @@ const AddClass = () => {
             const {className,availableSets,instructorEmail,instructorName,price,}=data;
             const newClass={className,availableSets:parseInt(availableSets),instructorEmail,instructorName,price:parseFloat(price),classImg:imgURL,status:'pending',TotalEnrolledStudents:0,feedback:'No Feedback'}
             console.log(newClass)
-            fetch('http://localhost:5000/classes',{
+            fetch('https://summer-camp-school-server-mu.vercel.app/classes',{
                 method:'POST',
                 headers:{
-                    "Content-type":'application/json'
+                    "Content-type":'application/json',
+                    "Authorization":`Bearer ${token}`
                 },
                 body:JSON.stringify(newClass)
             })
@@ -46,7 +48,6 @@ const AddClass = () => {
                         timer: 1500
                       })
                       navigate('/dashboard/instructorclasses')
-                      reset()
                       
                 }
                 console.log(data)

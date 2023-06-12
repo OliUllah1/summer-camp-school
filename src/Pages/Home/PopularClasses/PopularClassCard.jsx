@@ -1,11 +1,13 @@
 import React from 'react';
+import useAuth from '../../../Hooks/useAuth';
 
 const PopularClassCard = ({singleClass}) => {
+  const {dark}=useAuth()
     const{availableSets,classImg,className,instructorName,price
     }=singleClass;
     console.log(singleClass)
     return (
-        <div className="card bg-base-100 shadow-xl">
+        <div className={"card " + (dark?"bg-base-300":'bg-base-100 shadow-xl')}>
   <figure><img className=' h-60 w-full object-cover' src={classImg} alt="Shoes" /></figure>
   <div className="card-body">
     <h2 className="font-bold text-xl">Class Name : <span className='font-bold text-[#eb1551]'>{className}</span></h2>

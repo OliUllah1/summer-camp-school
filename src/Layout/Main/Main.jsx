@@ -7,7 +7,7 @@ import TopNavber from '../../Pages/Shared/Navber/TopNavber';
 const Main = () => {
     return (
         <div>
-            <TopNavber></TopNavber>
+            
             <Navber></Navber>
             <Outlet></Outlet>
             <Footer></Footer>

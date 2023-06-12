@@ -18,6 +18,7 @@ import ManageClasses from "../Pages/Dashboards/AdminDashboard/ManageClasses/Mana
 import ManageUsers from "../Pages/Dashboards/AdminDashboard/ManageUsers/ManageUsers";
 import UpdateClass from "../Pages/Dashboards/InstructorDashboard/UpdateClass/UpdateClass";
 import AdminRouter from "./PrivateRouter/AdminRouter";
+import InstructorRouter from "./PrivateRouter/InstructorRouter";
 
 
 const router = createBrowserRouter([
@@ -54,27 +55,27 @@ const router = createBrowserRouter([
       children:[
       {
         path:'myclasses',
-        element:<MyClasses></MyClasses>
+        element:<PrivateRouter><MyClasses></MyClasses></PrivateRouter>
       },
       {
         path:'enrolled',
-        element:<EnrolledClasses></EnrolledClasses>
+        element:<PrivateRouter><EnrolledClasses></EnrolledClasses></PrivateRouter>
       },
       {
         path:':id',
-        element:<Payment></Payment>
+        element:<PrivateRouter><Payment></Payment></PrivateRouter>
       },
       {
         path:'paymenthistory',
-        element:<PaymentHistory></PaymentHistory>
+        element:<PrivateRouter><PaymentHistory></PaymentHistory></PrivateRouter>
       },
       {
         path:'addclass',
-        element:<AddClass></AddClass>
+        element:<InstructorRouter><AddClass></AddClass></InstructorRouter>
       },
       {
         path:'instructorclasses',
-        element:<InstructorClasses></InstructorClasses>
+        element:<InstructorRouter><InstructorClasses></InstructorClasses></InstructorRouter>
       },
       {
         path:'manageclasses',
@@ -87,7 +88,7 @@ const router = createBrowserRouter([
       {
         path:'updateclass/:id',
         element:<UpdateClass></UpdateClass>,
-        loader:({params})=>fetch(`http://localhost:5000/classes/${params.id}`)
+        loader:({params})=>fetch(`https://summer-camp-school-server-mu.vercel.app/classes/${params.id}`)
       }
       ]
     }

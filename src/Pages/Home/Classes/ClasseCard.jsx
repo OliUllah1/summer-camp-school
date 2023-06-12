@@ -11,7 +11,7 @@ const ClasseCard = ({classe}) => {
     const handleSaveClass=()=>{
         if(user){
             const saveCard={classImg,className,instructorName,price,email:user.email,_id}
-            fetch('http://localhost:5000/saveclass',{
+            fetch('https://summer-camp-school-server-mu.vercel.app/saveclass',{
                 method:'POST',
                 headers:{
                     "Content-type":"application/json"
@@ -29,6 +29,15 @@ const ClasseCard = ({classe}) => {
                         timer: 1500
                       })
                       setSave(true)
+                }
+                else{
+                    Swal.fire({
+                        position: 'top-center',
+                        icon: 'success',
+                        title: 'Already save this class',
+                        showConfirmButton: false,
+                        timer: 1500
+                      })
                 }
                 console.log(data)})
         }

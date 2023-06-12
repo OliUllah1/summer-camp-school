@@ -33,8 +33,8 @@ const Navber = () => {
     </>
     return (
         <>
-        <div className={"w-full pr-4 lg:pr-0 lg:w-[94%] fixed z-10 overflow-hidden dark:bg-black" + (dark?"":'bg-black')}>
-        <div className="flex justify-between items-center shadow-md lg:mb-1 bg-opacity-40">
+        <div className={"pr-4 lg:pr-0 w-[83%] lg:w-[94%] fixed z-10 overflow-hidden dark:bg-black" + (dark?"":'bg-black')}>
+        <div className="flex justify-between items-center shadow-md lg:mb-1 bg-black bg-opacity-40">
     <div className="navbar">
       <div className=" flex-1">
         <div className="dropdown">
@@ -62,7 +62,7 @@ const Navber = () => {
           </ul>
         </div>
         <div className=''>
-        <img className="w-40 h-full object-center" src={logo} alt="" />
+        <img className="lg:w-40 h-full object-center" src={logo} alt="" />
         
         </div>
       </div>
@@ -76,7 +76,7 @@ const Navber = () => {
         {
             user ? <div className="flex items-center gap-2">
             <div  className="btn btn-ghost btn-circle avatar">
-              <div className="w-20 rounded-full">
+              <div className="w-10 lg:w-20 rounded-full">
                 <img className="w-full object-center"src={user.photoURL} />
               </div>
             </div>
@@ -89,7 +89,7 @@ const Navber = () => {
           
       </div>
       {
-        dark?<button><FaMoon onClick={()=>setDark(false)} className='mx-2 text-3xl'></FaMoon></button>:<button onClick={()=>setDark(true)} className='mx-2 text-3xl text-white'><FaSun></FaSun></button>
+        dark?<button><FaMoon onClick={()=>setDark(false)} className='mx-1 text-xl lg:mx-2 lg:text-3xl'></FaMoon></button>:<button onClick={()=>setDark(true)} className='mx-1 text-xl lg:mx-2 lg:text-3xl text-white'><FaSun></FaSun></button>
       }
       </div>
     </div>

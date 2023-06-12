@@ -10,6 +10,7 @@ import Swal from "sweetalert2";
 const SignUp = () => {
     const {createUser,updateUserNameAndPhoto}=useAuth()
     const [error,setError]=useState(null)
+    const token = localStorage.getItem('access-token');
     const [passwordError,setPasswordError]=useState(null);
     const [showPassword,setShowPassword]=useState(!true)
     const [showConfirmPassword,setShowConfirmPassword]=useState(!true)
@@ -26,10 +27,11 @@ const SignUp = () => {
                 updateUserNameAndPhoto(result.user,name,photoUrl)
                 .then(result=>{
                     const saveData ={email,name,photoUrl,role:'student'}
-                    fetch('http://localhost:5000/users',{
+                    fetch('https://summer-camp-school-server-mu.vercel.app/users',{
                         method:"POST",
                         headers:{
-                            "Content-type":"application/json"
+                            "Content-type":"application/json",
+                            "Authorization":`Bearer ${token}`
                         },
                         body:JSON.stringify(saveData)
                     })

@@ -4,14 +4,17 @@ import { useForm } from 'react-hook-form';
 import Swal from 'sweetalert2';
 
 const FeedbackModal = ({closeModal, isOpen, feedbackInformation ,refetch}) => {
+  console.log('feedback',feedbackInformation)
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const onSubmit = data =>{
         const feedbackData={feedback:data.feedback}
+        const token = localStorage.getItem('access-token');
         
-        fetch(`http://localhost:5000/classfeedback/${_id}`,{
+        fetch(`https://summer-camp-school-server-mu.vercel.app/classfeedback/${feedbackInformation._id}`,{
             method:'PATCH',
             headers:{
-                'Content-type':'application/json'
+                'Content-type':'application/json',
+                "Authorization":`Bearer ${token}`
             },
             body:JSON.stringify(feedbackData)
         })

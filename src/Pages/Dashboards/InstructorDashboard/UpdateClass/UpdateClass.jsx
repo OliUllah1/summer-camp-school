@@ -11,11 +11,13 @@ const UpdateClass = () => {
     const onSubmit = data => {
         const {className,availableSets,price}=data;
         const updateData={className,availableSets,price}
+        const token = localStorage.getItem('access-token');
         console.log(data)
-        fetch(`http://localhost:5000/classes/${_id}`,{
+        fetch(`https://summer-camp-school-server-mu.vercel.app/classes/${_id}`,{
             method:'PUT',
             headers:{
-                'Content-type':'application/json'
+                'Content-type':'application/json',
+                "Authorization":`Bearer ${token}`
             },
             body:JSON.stringify(updateData)
         })

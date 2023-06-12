@@ -5,13 +5,17 @@ import FeedbackModal from '../../../Shared/Modal/FeedbackModal';
 
 const ClassInformation = ({singleClass,index,refetch}) => {
   const [isOpen,setIsOpen]=useState(false)
+  const token = localStorage.getItem('access-token');
   const {availableSets,classImg,className,instructorEmail,instructorName,price,status,_id}=singleClass;
   const closeModal=()=>{
     setIsOpen(false)
   }
   const handleApproved=(id)=>{
-    fetch(`http://localhost:5000/classes/${id}?status=approved`,{
-      method:'PATCH'
+    fetch(`https://summer-camp-school-server-mu.vercel.app/classes/${id}?status=approved`,{
+      method:'PATCH',
+      headers:{
+        "Authorization":`Bearer ${token}`
+      }
     })
     .then(res=>res.json())
     .then(data=>{
@@ -39,8 +43,11 @@ const ClassInformation = ({singleClass,index,refetch}) => {
       confirmButtonText: 'Yes, denied it!'
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/classes/${id}?status=denied`,{
-      method:'PATCH'
+        fetch(`https://summer-camp-school-server-mu.vercel.app/classes/${id}?status=denied`,{
+      method:'PATCH',
+      headers:{
+        "Authorization":`Bearer ${token}`
+      }
     })
     .then(res=>res.json())
     .then(data=>{

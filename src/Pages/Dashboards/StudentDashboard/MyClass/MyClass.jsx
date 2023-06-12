@@ -19,7 +19,7 @@ const MyClass = ({singleClass,index,refetch}) => {
           }).then((result) => {
             if (result.isConfirmed) {
                 console.log('ok')
-                fetch(`http://localhost:5000/saveclass/${id}?email=${user.email}`,{
+                fetch(`https://summer-camp-school-server-mu.vercel.app/saveclass/${id}?email=${user.email}`,{
                     method:'DELETE'
                 })
                 .then(res=>res.json())

@@ -13,6 +13,7 @@ const CheckOutForm = ({price,classData}) => {
     const time =currTime.getFullYear() + '-' + (currTime.getMonth() + 1) + '-' + currTime.getDate() +' ' + currTime.getHours() + ':' + currTime.getMinutes() + ':' + currTime.getSeconds();
     const {user}=useAuth()
     const stripe = useStripe();
+    const token = localStorage.getItem('access-token');
     const elements = useElements();
     const [axiosSecure] = useAxiosSecure()
     const [cardError,setCardError]=useState('')
@@ -86,10 +87,11 @@ const CheckOutForm = ({price,classData}) => {
           price,
           time
         }
-        fetch(`http://localhost:5000/payments?id=${_id}`,{
+        fetch(`https://summer-camp-school-server-mu.vercel.app/payments?id=${_id}`,{
           method:'POST',
           headers:{
-            'Content-type':'application/json'
+            'Content-type':'application/json',
+            "Authorization":`Bearer ${token}`
           },
           body:JSON.stringify(paymentsData)
         })

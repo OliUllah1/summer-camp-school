@@ -3,6 +3,7 @@ import { FaGraduationCap,FaUserShield } from "react-icons/fa";
 import Swal from 'sweetalert2';
 
 const UserInformation = ({user,index,refetch}) => {
+  const token = localStorage.getItem('access-token');
     const {email,name,photoUrl,role,_id}=user;
     const handleMakeAdmin=(id)=>{
         Swal.fire({
@@ -15,8 +16,11 @@ const UserInformation = ({user,index,refetch}) => {
             confirmButtonText: 'Yes, i do it!'
           }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/users/${id}?role=admin`,{
-                    method:'PATCH'
+                fetch(`https://summer-camp-school-server-mu.vercel.app/users/${id}?role=admin`,{
+                    method:'PATCH',
+                    headers:{
+                      "Authorization":`Bearer ${token}`
+                    }
                 })
                 .then(res=>res.json())
                 .then(data=>{
@@ -47,8 +51,11 @@ const UserInformation = ({user,index,refetch}) => {
           }).then((result) => {
             if (result.isConfirmed) {
 
-                fetch(`http://localhost:5000/users/${id}?role=instructor`,{
-                    method:'PATCH'
+                fetch(`https://summer-camp-school-server-mu.vercel.app/users/${id}?role=instructor`,{
+                    method:'PATCH',
+                    headers:{
+                      "Authorization":`Bearer ${token}`
+                    }
                 })
                 .then(res=>res.json())
                 .then(data=>{

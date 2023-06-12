@@ -3,12 +3,13 @@ import { useForm } from "react-hook-form";
 import login from '../../../assets/images/login.jpg'
 import { FaEye,FaEyeSlash } from "react-icons/fa";
 import SocialLogin from './SocialLogin';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import useAuth from '../../../Hooks/useAuth';
 const Login = () => {
     const {signIn}=useAuth();
     const [error,setError]=useState(null)
     const [showPassword,setShowPassword]=useState(!true)
+    const navigate=useNavigate()
     const { register, handleSubmit,formState: { errors } } = useForm();
     const onSubmit = data => {
         setError('');
@@ -16,6 +17,7 @@ const Login = () => {
         .then(result=>{
             const user= result.user;
             console.log(user)
+            navigate('/')
         })
         .catch(error=>{
             console.log(error)

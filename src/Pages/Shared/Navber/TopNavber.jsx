@@ -5,7 +5,7 @@ const TopNavber = () => {
     const {dark}=useAuth()
     return (
         <div className={(dark?'bg-black':'bg-[#eb1551]')}>
-            <div className='overflow-hidden py-2 px-5 text-white hidden lg:flex justify-between'>
+            <div className='overflow-hidden lg:py-2 px-5 text-white hidden lg:flex justify-between'>
             <div className='flex gap-5'>
                 <p className='flex items-center gap-2'><FaPhoneAlt></FaPhoneAlt> +000 - 123 - 456789</p>
                 <p className='flex items-center gap-2'><FaEnvelope></FaEnvelope>art.academy@gmail.com</p>
