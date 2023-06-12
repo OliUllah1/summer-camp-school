@@ -6,6 +6,8 @@ import StudentNavber from '../StudentDashboard/StudentNavber/StudentNavber';
 import AdminNavber from '../AdminDashboard/AdminNavber/AdminNavber';
 import InstructorNavber from '../InstructorDashboard/InstructorNavber/InstructorNavber';
 import useRole from '../../../Hooks/useRole';
+import { FaBookReader,FaUserGraduate,FaHome } from "react-icons/fa";
+
 const DashboardSidebar = () => {
     const {user,}=useAuth()
     const [role]=useRole()
@@ -30,7 +32,13 @@ const DashboardSidebar = () => {
             {
                 role==='admin'&&<AdminNavber></AdminNavber>
             }
+            <hr className='text-white mx-2' />
+            <ul className="menu font-semibold w-56 rounded-box">
+            <li><Link to='/'><FaHome></FaHome> Home</Link></li>
+            <li><Link to="/instructors"><FaUserGraduate></FaUserGraduate> Instructors</Link></li>
+            <li><Link to="/classes"><FaBookReader></FaBookReader> Classes</Link></li>
             
+            </ul>
             
         </div>
     );
