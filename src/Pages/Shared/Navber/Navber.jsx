@@ -33,7 +33,7 @@ const Navber = () => {
     </>
     return (
         <>
-        <div className={"pr-4 lg:pr-0 w-[83%] lg:w-[94%] fixed z-10 overflow-hidden dark:bg-black" + (dark?"":'bg-black')}>
+        <div className={"pr-4 lg:pr-0 w-[83%] lg:w-[100%] fixed z-10 overflow-hidden dark:bg-black" + (dark?"":'bg-black')}>
         <div className="flex justify-between items-center shadow-md lg:mb-1 bg-black bg-opacity-40">
     <div className="navbar">
       <div className=" flex-1">

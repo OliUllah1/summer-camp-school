@@ -9,7 +9,7 @@ import { QueryClient, QueryClientProvider } from 'react-query';
 const queryClient = new QueryClient()
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <div className='px-2 lg:px-10'>
+    <div className=''>
       
       <AuthProvider>
       <QueryClientProvider client={queryClient}>
