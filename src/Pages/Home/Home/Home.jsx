@@ -6,6 +6,7 @@ import PopularInstructors from '../PopularInstructors/PopularInstructors';
 import UpcomingClasses from '../UpcomingClasses/UpcomingClasses';
 import About from '../About/About';
 import AboutBottom from '../About/AboutBottom';
+import Class from '../Class/Class';
 
 
 const Home = () => {
@@ -14,9 +15,10 @@ const Home = () => {
             <Banner></Banner>
             <About></About>
             <AboutBottom></AboutBottom>
+            <Class></Class>
             {/* <PopularClasses></PopularClasses>
             <PopularInstructors></PopularInstructors>
-            <UpcomingClasses></UpcomingClasses> */}
+            <UpcomingClasses></UpcomingClasses>  */}
         </div>
     );
 };
