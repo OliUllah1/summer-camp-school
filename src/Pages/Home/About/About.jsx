@@ -14,7 +14,7 @@ const About = () => {
 
              
             </div>
-            <div className='space-y-4'>
+            <div className='space-y-5 mt-16'>
                 <p className='italic text-2xl text-red-700'>About Articio</p>
                 <h1 className='text-5xl font-semibold'>Learn The Art From The Core And Pursue Your Passion</h1>
                 <p className='text-gray-500'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi</p>
@@ -37,6 +37,16 @@ const About = () => {
                         <p className='text-gray-500 text-center font-semibold'>Events & Exhibitions</p>
                     </div>
                     <h5 className='px-10 py-2 text-gray-500 text-lg space-y-1'>Perspiciatis unde omnis iste natus error volupta accusantium doloremque laudanti, totam rem aperiam eaque ipsa inventore</h5>
+                </div>
+                <div className='flex items-center gap-14'>
+                    <div className='flex px-10 gap-5 justify-center items-center'>
+                        <img className='w-20 rounded-full' src={founder} alt="" />
+                        <div>
+                            <h3 className='text-xl font-bold text-gray-700'>Oli Ullah</h3>
+                            <p className='text-gray-500'>Founder Articio</p>
+                        </div>
+                    </div>
+                    <button className='primary-btn'>More About Us</button>
                 </div>
                 
             </div>
