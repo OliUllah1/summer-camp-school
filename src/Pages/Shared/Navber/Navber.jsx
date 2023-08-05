@@ -33,15 +33,15 @@ const Navber = () => {
     </>
     return (
         <>
-        <div className={"pr-4 lg:pr-0 w-[83%] lg:w-[100%] fixed z-10 overflow-hidden dark:bg-black" + (dark?"":'bg-black')}>
+        <div className={" lg:w-[100%] fixed z-10 overflow-hidden dark:bg-black" + (dark?"":'bg-black')}>
         <div className="flex justify-between items-center shadow-md lg:mb-1 bg-black bg-opacity-40">
-    <div className="navbar">
+    <div className="navbar px-3">
       <div className=" flex-1">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
+              className="h-5 w-5 text-white"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
