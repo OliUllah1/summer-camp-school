@@ -7,6 +7,7 @@ import UpcomingClasses from '../UpcomingClasses/UpcomingClasses';
 import About from '../About/About';
 import AboutBottom from '../About/AboutBottom';
 import Class from '../Class/Class';
+import Register from '../Register/Register';
 
 
 const Home = () => {
@@ -16,6 +17,7 @@ const Home = () => {
             <About></About>
             <AboutBottom></AboutBottom>
             <Class></Class>
+            <Register></Register>
             {/* <PopularClasses></PopularClasses>
             <PopularInstructors></PopularInstructors>
             <UpcomingClasses></UpcomingClasses>  */}
