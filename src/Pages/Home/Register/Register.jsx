@@ -4,7 +4,7 @@ import registerBg from '../../../assets/images/register-bg.jpg'
 import { FaCheckCircle,FaClock,FaPhoneAlt,FaMapMarkerAlt } from "react-icons/fa";
 const Register = () => {
     return (
-        <div className='py-10 relative h-[1250px]'>
+        <div className='lg:py-10 relative h-[1950px] lg:h-[1250px]'>
             <div className="hero min-h-screen" style={{backgroundImage: `url(${registerBg})`,backgroundAttachment:'fixed',backgroundPosition:'cover'}}>
   <div className="hero-overlay bg-opacity-90"></div>
   <div className="hero-content text-center text-neutral-content">
@@ -15,16 +15,16 @@ const Register = () => {
     </div>
   </div>
             </div>
-            <div className='flex absolute top-96 mt-32 rounded-tl-3xl rounded-br-3xl gap-10 mx-20 p-16 bg-white shadow-2xl'>
+            <div className='lg:flex absolute w-full lg:w-[85%] top-96 mt-56 lg:mt-32 rounded-tl-3xl rounded-br-3xl gap-10 lg:mx-20 p-5 lg:p-16 bg-white shadow-2xl'>
                 <div className='w-full'>
-                    <form action="">
+                    <form action="" className=' mb-5'>
                     <div className="form-control">
                         <label className="label">
                             <span className="text-lg font-semibold">Name</span>
                         </label>
                         <input type="text" placeholder="Full Name" className="input input-bordered" />
                     </div>
-                    <div className='flex gap-5'>
+                    <div className='lg:flex w-full gap-5'>
                     <div className="form-control w-full">
                         <label className="label">
                             <span className="text-lg font-semibold">Email</span>
@@ -54,11 +54,11 @@ const Register = () => {
                     </form>
                 </div>
                 <div className='w-full relative'>
-                    <div className='mx-5 bg-black rounded-tl-[40px] rounded-br-[30px]'>
+                    <div className='lg:mx-5 bg-black rounded-tl-[40px] rounded-br-[30px]'>
                         <img className='w-full h-[550px] object-cover rounded-tl-[40px] rounded-br-[30px] opacity-10' src={register} alt="" />
                     </div>
-                    <div className=' absolute mx-5 top-0 w-full h-full py-10 pl-10 pr-14 space-y-5'>
-                        <h3 className='text-3xl font-bold text-white'>Don't Hesitate To Contact Us If You Have Any Question</h3>
+                    <div className=' absolute lg:mx-5 top-0 w-full h-full py-10 pl-10 pr-14 space-y-4 lg:space-y-5'>
+                        <h3 className='text-xl lg:text-3xl font-bold text-white'>Don't Hesitate To Contact Us If You Have Any Question</h3>
                         <p className='text-slate-300'>Lorem ipsum dolor sit amet, consectet adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim</p>
                         <div className='flex gap-5 items-center text-gray-300'>
                             <FaCheckCircle className='text-[#ce373a]'></FaCheckCircle>
