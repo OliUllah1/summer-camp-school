@@ -47,7 +47,7 @@ const ClasseCard = ({classe}) => {
     }
     
     return (
-        <div className="card bg-base-100 shadow-2xl">
+        <div className="rounded-tl-3xl rounded-br-3xl bg-base-100 shadow-2xl">
   <figure className="px-5 pt-10">
     <img src={classImg} alt="Shoes" className="rounded-xl w-full h-40" />
   </figure>

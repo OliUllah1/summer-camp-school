@@ -3,15 +3,15 @@ import event from '../../../assets/images/event.jpg'
 import { FaCalendarAlt } from "react-icons/fa";
 const Events = () => {
     return (
-        <div className='px-2 py-20 lg:px-10 flex gap-5'>
-            <div className='w-full mx-20 relative'>
+        <div className='px-2 lg:py-20 lg:px-10 lg:flex gap-5'>
+            <div className='w-full mb-28 lg:mx-20 relative'>
                 <img className='w-full h-[600px] object-cover rounded-tl-3xl rounded-br-3xl' src={event} alt="" />
                 <div className='bg-white absolute bottom-0 -mb-14 shadow-xl space-y-3 px-10 py-5 w-[85%] left-5 rounded-tl-3xl rounded-br-3xl'>
                     <p className='border-l-4 border-red-500 pl-5 text-gray-500'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna”</p>
                     <h5 className='font-semibold text-lg'>Russell Mack</h5>
                 </div>
             </div>
-            <div className='w-full mt-11 space-y-6'>
+            <div className='w-full px-5 lg:px-0 mt-11 space-y-6'>
                 <p className='italic text-xl text-red-600'>Events</p>
                 <h2 className='font-semibold text-4xl'>Upcoming Events And Exhibitions From Students</h2>
                 <p className='text-gray-500'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>

@@ -8,7 +8,7 @@ import useAuth from '../../../Hooks/useAuth';
 const Banner = () => {
     const {dark}=useAuth()
     return (
-        <Swiper navigation={true} modules={[Navigation]} className="mySwiper h-full">
+        <Swiper navigation={true} modules={[Navigation]} className="mySwiper h-full w-full">
         <SwiperSlide>
         <div className="hero min-h-screen" style={{backgroundImage: 'url(https://i.ibb.co/g3bDgRs/slider-4.jpg)'}}>
             <div className={"hero-overlay"+ (dark?" bg-opacity-100":' bg-opacity-70')}></div>

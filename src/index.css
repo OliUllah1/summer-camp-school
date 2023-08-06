@@ -5,6 +5,12 @@
 .primary-btn{
     @apply px-6 py-2 rounded-tl-lg rounded-br-lg font-bold hover:text-[#eb1551] border border-[#eb1551] bg-[#eb1551] text-white hover:bg-white
 }
+.teacher-btn{
+    @apply px-4 py-3 text-xl z-40 rounded-tl-md rounded-br-md font-bold hover:text-[#eb1551]   bg-[#eb1551] text-white hover:bg-white
+}
+.primary-teacher-btn{
+    @apply px-4 py-3 text-xl z-40 bg-white rounded-tl-md rounded-br-md font-bold hover:text-white  text-[#eb1551] hover:bg-[#eb1551]
+}
 .sm-btn{
     @apply px-2 py-1 rounded-tl-lg rounded-br-lg font-bold hover:text-[#eb1551] border border-[#eb1551] bg-[#eb1551] text-white hover:bg-white
 }

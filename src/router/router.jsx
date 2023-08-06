@@ -19,6 +19,8 @@ import ManageUsers from "../Pages/Dashboards/AdminDashboard/ManageUsers/ManageUs
 import UpdateClass from "../Pages/Dashboards/InstructorDashboard/UpdateClass/UpdateClass";
 import AdminRouter from "./PrivateRouter/AdminRouter";
 import InstructorRouter from "./PrivateRouter/InstructorRouter";
+import About from "../Pages/Home/About/About";
+import Blog from "../Pages/Home/Blog/Blog";
 
 
 const router = createBrowserRouter([
@@ -34,6 +36,14 @@ const router = createBrowserRouter([
         {
           path:'/instructors',
           element:<Instructors></Instructors>
+        },
+        {
+          path:'/about',
+          element:<About></About>
+        },
+        {
+          path:'/blog',
+          element:<Blog></Blog>
         },
         {
           path:'/classes',

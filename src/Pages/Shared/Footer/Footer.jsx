@@ -3,7 +3,7 @@ import logo from '../../../assets/images/logo3.png'
 import { FaEnvelope,FaPhoneAlt,FaMapMarkerAlt,FaClock } from "react-icons/fa";
 const Footer = () => {
     return (
-        <div className=' text-center lg:text-left px-10 pt-20 pb-10 bg-[#12161f] text-white'>
+        <div className='text-center w-full lg:text-left px-5 lg:px-10 pt-20 pb-10 bg-[#12161f] text-white'>
         <footer className="footer">
   <div>
     <img className='w-56 mb-2' src={logo} alt="" />

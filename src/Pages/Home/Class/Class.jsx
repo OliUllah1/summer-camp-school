@@ -12,7 +12,7 @@ const Class = () => {
             <div className='text-center space-y-3 mb-5'>
                 <p className='italic text-red-600 text-2xl'>Our Class</p>
                 <h1 className='text-4xl font-bold text-gray-700'>Choose The Best Class For You</h1>
-                <p className='text-gray-500'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod <br /> tempor incididunt ut labore et dolore magna aliqua</p>
+                <p className='text-gray-500'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod <br className='hidden lg:block' /> tempor incididunt ut labore et dolore magna aliqua</p>
             </div>
             <div className='grid my-10 gap-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
                 <div className='shadow-xl  rounded-br-3xl rounded-tl-3xl space-y-3 bg-slate-50 p-10'>

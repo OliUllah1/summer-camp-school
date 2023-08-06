@@ -11,7 +11,7 @@ const Instructors = () => {
     })
     console.log(instructors)
     return (
-        <div className='pt-20'>
+        <div className='pt-20 px-2 lg:px-10'>
             <div className='grid grid-cols-4 py-10 gap-5'>
             {
                 instructors.map(instructor=><InstructorCard key={instructor._id} instructor={instructor}></InstructorCard>)

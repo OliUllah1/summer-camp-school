@@ -18,8 +18,11 @@ const Navber = () => {
     }
     const navItem = <>
             <li><NavLink to="/" className={({ isActive }) =>isActive ? "text-xl  text-[#eb1551]" : "text-white text-xl"}>Home</NavLink></li>
+            <li><NavLink to="/about" className={({ isActive }) =>isActive ? "text-xl  text-[#eb1551]" : "text-white text-xl"}>About Us</NavLink></li>
             <li><NavLink to="/instructors" className={({ isActive }) =>isActive ? "text-xl  text-[#eb1551]" : "text-white  text-xl"}>Instructors</NavLink></li>
             <li><NavLink to="/classes" className={({ isActive }) =>isActive ? "text-xl  text-[#eb1551]" : "text-white  text-xl"}>Classes</NavLink></li>
+            <li><NavLink to="/blog" className={({ isActive }) =>isActive ? "text-xl  text-[#eb1551]" : "text-white  text-xl"}>Blog</NavLink></li>
+            <li><NavLink to="/contact" className={({ isActive }) =>isActive ? "text-xl  text-[#eb1551]" : "text-white  text-xl"}>Contact</NavLink></li>
             {
               role==='student' && <li><NavLink to="/dashboard/myclasses" className={({ isActive }) =>isActive ? "text-xl  text-[#eb1551]" : "text-white  text-xl"}>Dashboard </NavLink></li>
             }
@@ -34,7 +37,7 @@ const Navber = () => {
     return (
         <>
         <div className={" lg:w-[100%] fixed z-10 overflow-hidden dark:bg-black" + (dark?"":'bg-black')}>
-        <div className="flex justify-between items-center shadow-md lg:mb-1 bg-black bg-opacity-40">
+        <div className="flex px-2 lg:px-10 justify-between items-center shadow-md lg:mb-1 bg-black bg-opacity-40">
     <div className="navbar px-3">
       <div className=" flex-1">
         <div className="dropdown">

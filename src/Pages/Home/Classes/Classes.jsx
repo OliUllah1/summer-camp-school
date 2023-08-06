@@ -10,7 +10,7 @@ const Classes = () => {
     },[])
     console.log(classes)
     return (
-        <div className='pt-20'>
+        <div className='pt-20 px-2 lg:px-10'>
             <div className='grid grid-cols-4 py-10 gap-5'>
                 {
                     classes.map(classe=><ClasseCard key={classe._id} classe={classe}></ClasseCard>)

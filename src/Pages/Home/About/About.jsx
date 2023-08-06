@@ -2,8 +2,10 @@ import React from 'react';
 import aboutPic from "../../../assets/images/about/about.jpg"
 import aboutPrint from "../../../assets/images/about/about-print.jpg"
 import founder from "../../../assets/images/about/founder.jpg"
+import AboutBottom from './AboutBottom';
 const About = () => {
     return (
+        <>
         <div className='px-2 w-full lg:px-10 lg:py-20 pb-10 lg:pb-0 lg:flex gap-10'>
             <div className='w-[100%]  relative'>
                 <div className='bg-[#2d3448] w-[80%] ml-20 mb-20 mt-36 h-[600px]'>
@@ -51,6 +53,8 @@ const About = () => {
                 
             </div>
         </div>
+        <AboutBottom></AboutBottom>
+        </>
     );
 };
 

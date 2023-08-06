@@ -2,13 +2,13 @@
 import React from 'react';
 import Banner from '../Banner/Banner';
 import PopularClasses from '../PopularClasses/PopularClasses';
-import PopularInstructors from '../PopularInstructors/PopularInstructors';
-import UpcomingClasses from '../UpcomingClasses/UpcomingClasses';
 import About from '../About/About';
-import AboutBottom from '../About/AboutBottom';
 import Class from '../Class/Class';
 import Register from '../Register/Register';
 import Events from '../Events/Events';
+import Blog from '../Blog/Blog';
+import Teacher from '../Teacher/Teacher';
+import Contact from '../Contact/Contact';
 
 
 const Home = () => {
@@ -16,13 +16,16 @@ const Home = () => {
         <div>
             <Banner></Banner>
             <About></About>
-            <AboutBottom></AboutBottom>
             <Class></Class>
             <Register></Register>
+            <PopularClasses></PopularClasses>
             <Events></Events>
-            {/* <PopularClasses></PopularClasses>
-            <PopularInstructors></PopularInstructors>
-            <UpcomingClasses></UpcomingClasses>  */}
+            <Teacher></Teacher>
+            <Blog></Blog>
+            <Contact></Contact>
+             
+            
+            
         </div>
     );
 };
