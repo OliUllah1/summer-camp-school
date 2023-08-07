@@ -21,8 +21,9 @@ const Home = () => {
             <PopularClasses></PopularClasses>
             <Events></Events>
             <Teacher></Teacher>
-            <Blog></Blog>
             <Contact></Contact>
+            <Blog></Blog>
+            
              
             
             

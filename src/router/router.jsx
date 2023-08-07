@@ -21,6 +21,7 @@ import AdminRouter from "./PrivateRouter/AdminRouter";
 import InstructorRouter from "./PrivateRouter/InstructorRouter";
 import About from "../Pages/Home/About/About";
 import Blog from "../Pages/Home/Blog/Blog";
+import Contact from "../Pages/Home/Contact/Contact";
 
 
 const router = createBrowserRouter([
@@ -44,6 +45,10 @@ const router = createBrowserRouter([
         {
           path:'/blog',
           element:<Blog></Blog>
+        },
+        {
+          path:'/contact',
+          element:<Contact></Contact>
         },
         {
           path:'/classes',
